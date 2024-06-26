@@ -70,3 +70,5 @@ main: $(OBJ)
 
 clean:
 	rm -f $(ODIR)/*.o main
+
+#cool
