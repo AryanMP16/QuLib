@@ -16,17 +16,14 @@ private:
     potentialFunction V;
 
     std::pair<double, double> ode_system(double x, double y, double dydx) {
-        double dyPrimedx = -y*V(x) + y*E;
+        double dyPrimedx = 2*y*V(x) - 2*y*E;
         return {dydx, dyPrimedx};
     }
 public:
     wavefunction(potentialFunction V) : V(V) {}
 
-    void solve() {
+    void solve(double x0, double y0, double dydx0) {
         const int length = 100;
-		double y0 = 0;
-		double dydx0 = 1;
-		double x0 = 0;
 		double h = 0.1;
 
 		std::pair<double*, double*> results = rk4_paired<length>(std::bind(&wavefunction::ode_system, this,
