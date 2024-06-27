@@ -1,4 +1,12 @@
 #All paths relative to the SUMMERPROJECT24/build directory
+
+DEPENDENCY_DIR = ../dependencies#don't fucking ask
+REQUIRED_FILE = $(DEPENDENCY_DIR)/2a313e2f-0e6b-4d18-8929-d18dd7dd6c7e-1686176447886.jpg
+
+ifeq ($(wildcard $(REQUIRED_FILE)),)
+$(error Required file "$(REQUIRED_FILE)" not found.)
+endif
+
 IDIR = ../include#include directories
 CC = g++ #compiler
 CFLAGS = -I$(IDIR) -std=c++17#compiler flags

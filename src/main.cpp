@@ -3,6 +3,7 @@
 #include "Runge_Kutta_4.h"
 #include <iostream>
 #include "matplotlibcpp.h"
+//ignore any squiggly lines under "matplotlibcpp.h". I swear it works just ignore it.
 
 namespace plt = matplotlibcpp;
 
