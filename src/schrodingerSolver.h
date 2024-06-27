@@ -40,7 +40,8 @@ public:
 		
 		wavefunctionValues = std::vector<double>(results.first, results.first + length);
 		plt::plot(x, wavefunctionValues);
-		plt::save("../saves/output.png");
+        plt::title("ψ");
+		plt::save("../saves/wavefunction.png");
 
 		delete[] results.first;
 		delete[] results.second;
