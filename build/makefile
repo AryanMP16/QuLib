@@ -9,7 +9,7 @@ endif
 
 IDIR = ../src#include directories
 CC = g++ #compiler
-CFLAGS = -I$(IDIR) -std=c++17#compiler flags
+CFLAGS = -I$(IDIR) -std=c++17 -fopenmp#compiler flags
 
 ODIR = obj#where object files will be stored
 SDIR = ../tester#where main.cpp file is stored
@@ -23,9 +23,9 @@ CFLAGS += -I$(NUMPY_INCLUDE)
 # Library path for Python libraries
 PYTHON_LIB = $(shell python3 -c "from sysconfig import get_paths as gp; print(gp()['platlib'])")
 
-LIBS = -lm -lpython3.8 #libraries to link against. -lm is math library, -lpython3.8 is Python library
+LIBS = -lm -lpython3.8 -fopenmp -lgomp#libraries to link against. -lm is math library, -lpython3.8 is Python library
 
-_DEPS = complex.h matrix.h Runge_Kutta_4.h schrodingerSolver.h matplotlibcpp.h#list of all header files
+_DEPS = complex.h matrix.h Runge_Kutta_4.h schrodingerSolver.h integrate.h matplotlibcpp.h#list of all header files
 #note on variables: they are declared just like in shell, e.g., identifier=value
 #	however, in shell, to do variable expansion, you write $identifier.
 #	in make, you do variable expansion by writing $(identifier) or ${identifier}
