@@ -7,12 +7,12 @@ ifeq ($(wildcard $(REQUIRED_FILE)),)
 $(error Required file "$(REQUIRED_FILE)" not found.)
 endif
 
-IDIR = ../include#include directories
+IDIR = ../src#include directories
 CC = g++ #compiler
 CFLAGS = -I$(IDIR) -std=c++17#compiler flags
 
 ODIR = obj#where object files will be stored
-SDIR = ../src#where source files are stored
+SDIR = ../tester#where main.cpp file is stored
 
 # Include path for Python headers
 PYTHON_INCLUDE = $(shell python3 -c "from sysconfig import get_paths as gp; print(gp()['include'])")
