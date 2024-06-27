@@ -7,8 +7,14 @@
 
 namespace plt = matplotlibcpp;
 
+//Simple sinusoidal fxn
+// std::pair<double, double> ode_system(double x, double y, double dydx) {
+// 	double dyPrimedx = -y;
+// 	return {dydx, dyPrimedx};
+// }
+
 std::pair<double, double> ode_system(double x, double y, double dydx) {
-	double dyPrimedx = -y;
+	double dyPrimedx = -y-x*x+3;
 	return {dydx, dyPrimedx};
 }
 
@@ -28,9 +34,7 @@ int main() {
 		
 		std::vector<double> y(results.first, results.first + length);
 		plt::plot(x, y);
-		plt::title("Solution to y''=-y");
 		plt::save("../saves/output.png");
-		
 
 		delete[] results.first;
 		delete[] results.second;
