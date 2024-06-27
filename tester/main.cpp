@@ -9,7 +9,7 @@
 namespace plt = matplotlibcpp;
 
 double U(double x){
-	return 2.0;
+	return 2.0; //test: should return a sinusoidal function. And it does :)
 }
 
 int main() {
