@@ -6,9 +6,18 @@ CFLAGS = -I$(IDIR) -std=c++17#compiler flags
 ODIR = obj#where object files will be stored
 SDIR = ../src#where source files are stored
 
-LIBS = -lm#libraries to link against. -lm is math library
+# Include path for Python headers
+PYTHON_INCLUDE = $(shell python3 -c "from sysconfig import get_paths as gp; print(gp()['include'])")
+NUMPY_INCLUDE = $(shell python3 -c "import numpy; print(numpy.get_include())")
 
-_DEPS = complex.h matrix.h Runge_Kutta_4.h#list of all header files
+CFLAGS += -I$(NUMPY_INCLUDE)
+
+# Library path for Python libraries
+PYTHON_LIB = $(shell python3 -c "from sysconfig import get_paths as gp; print(gp()['platlib'])")
+
+LIBS = -lm -lpython3.8 #libraries to link against. -lm is math library, -lpython3.8 is Python library
+
+_DEPS = complex.h matrix.h Runge_Kutta_4.h matplotlibcpp.h#list of all header files
 #note on variables: they are declared just like in shell, e.g., identifier=value
 #	however, in shell, to do variable expansion, you write $identifier.
 #	in make, you do variable expansion by writing $(identifier) or ${identifier}
@@ -61,14 +70,12 @@ OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 #	"gcc -o main main.c", to echo or print anything and thus it will run silently
 $(ODIR)/%.o: $(SDIR)/%.cpp $(DEPS)
 	@mkdir -p $(ODIR)
-	$(CC) -c -o $@ $< $(CFLAGS)
+	$(CC) -c -o $@ $< $(CFLAGS) -I$(PYTHON_INCLUDE) -I$(NUMPY_INCLUDE)
 
 main: $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS) -L$(PYTHON_LIB)
 
 .PHONY: clean
 
 clean:
 	rm -f $(ODIR)/*.o main
-
-#cool
