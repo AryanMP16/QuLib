@@ -27,6 +27,9 @@ int main() {
 		
 		std::vector<double> y(results.first, results.first + length);
 		plt::plot(x, y);
+		plt::title("Solution to y''=-y");
+		plt::xlabel("x");
+		plt::ylabel("y");
 		plt::save("../saves/output.png");
 		
 
