@@ -4,6 +4,7 @@
 #include <iostream>
 #include "matplotlibcpp.h"
 #include "schrodingerSolver.h"
+#include "integrate.h"
 //ignore any squiggly lines under "matplotlibcpp.h". I swear it works just ignore it.
 
 namespace plt = matplotlibcpp;
@@ -12,11 +13,21 @@ double U(double x){
 	return 2.0; //test: should return a sinusoidal function. And it does :)
 }
 
+double xSquared(double x){
+	return x * x;
+}
+
+double gaussian(double x){
+	return std::exp(-x*x);
+}
+
 int main() {
 	try {
 		
-		wavefunction psi(U);
-		psi.solve();
+		// wavefunction psi(U);
+		// psi.solve();
+
+		//std::cout << integrate(gaussian, -10, 10, 0.001);
 
 		return 0;
 
