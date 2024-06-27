@@ -16,6 +16,7 @@ int main() {
 	try {
 		
 		wavefunction psi(U);
+		psi.solve();
 
 		return 0;
 
