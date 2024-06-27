@@ -1,3 +1,6 @@
+//I did NOT write this file. This was cloned from https://github.com/lava/matplotlib-cpp.git
+//I wrote all the other files tho
+
 #pragma once
 
 // Python headers must be included before any system headers, since
