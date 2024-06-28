@@ -28,7 +28,7 @@ public:
     void solve(double x0, double y0, double dydx0) {
         solved = 1;
 
-        const int length = 350;
+        const int length = 300;
 		double h = 0.01;
 
 		std::pair<double*, double*> results = rk4_paired<length>(std::bind(&wavefunction::ode_system, this,
