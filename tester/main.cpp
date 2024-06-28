@@ -12,11 +12,18 @@ double U(double x){
 	return 2 * x * x;
 }
 
+double USimple(double x){
+	return 0;
+}
+
 int main() {
 	try {
-		
-		wavefunction psi(U);
-		psi.solve(0, 1, 0);
+
+		wavefunction psiQHO(U);
+		psiQHO.solve(0, 1, 0);
+
+		wavefunction psiPIB(USimple);
+		psiPIB.solve(0, 0, 1);
 
 		return 0;
 
