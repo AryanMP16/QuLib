@@ -9,16 +9,14 @@
 //ignore any squiggly lines under "matplotlibcpp.h". I swear it works just ignore it.
 
 double U(double x){
-	return 0.5 * x * x;
+	return 2 * x * x;
 }
 
 int main() {
 	try {
 		
-		// wavefunction psi(U);
-		// psi.solve(0, 1, 1);
-
-		//std::cout << integrate(gaussian, -10, 10, 0.001);
+		wavefunction psi(U);
+		psi.solve(0, 1, 0);
 
 		return 0;
 
