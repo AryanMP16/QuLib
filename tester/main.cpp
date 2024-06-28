@@ -6,7 +6,6 @@
 #include "schrodingerSolver.h"
 #include "integrate.h"
 
-#include "Hi.h"
 //ignore any squiggly lines under "matplotlibcpp.h". I swear it works just ignore it.
 
 double U(double x){
