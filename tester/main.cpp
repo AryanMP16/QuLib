@@ -19,8 +19,6 @@ int main() {
 		// wavefunction psi(U);
 		// psi.solve(0, 1, 1);
 
-		//plotH();
-
 		//std::cout << integrate(gaussian, -10, 10, 0.001);
 
 		return 0;
