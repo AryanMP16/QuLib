@@ -45,7 +45,9 @@ double integrateOverAllSpace(integrand fxn, double h) {
         h = 2.0 / n;  //recalculate h to ensure even intervals
     }
 
-    for (int i = 0; i <= n; ++i) {
+    int i = 0;
+    #pragma omp parallel for private(i) reduction (+ : integral) //multithreading go even more brr
+    for (i = 0; i <= n; ++i) {
         double t = -1.0 + i * h;
         if (!(std::abs(t) >= 1.0)) {
             double weight = (i == 0 || i == n) ? 1 : ((i % 2 == 0) ? 2 : 4);
