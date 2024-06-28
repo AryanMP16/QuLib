@@ -5,19 +5,21 @@
 #include "matplotlibcpp.h"
 #include "schrodingerSolver.h"
 #include "integrate.h"
+
+#include "Hi.h"
 //ignore any squiggly lines under "matplotlibcpp.h". I swear it works just ignore it.
 
-namespace plt = matplotlibcpp;
-
 double U(double x){
-	return 0.5 * x * x; //using w = m = 1
+	return 0.5 * x * x;
 }
 
 int main() {
 	try {
 		
-		wavefunction psi(U);
-		psi.solve(0, 1, 1);
+		// wavefunction psi(U);
+		// psi.solve(0, 1, 1);
+
+		//plotH();
 
 		//std::cout << integrate(gaussian, -10, 10, 0.001);
 
