@@ -59,18 +59,19 @@ double integrateOverAllSpace(integrand fxn, double h) {
     return integral;
 }
 
-double integrateOverAllKnownValues(std::vector<double> knownValues) {
-    double integral = 0;
-    double numIterations = knownValues.size();
+double integrateOverAllKnownValues(std::vector<double> knownValues, double sep) {
+    double integral = 0.0;
+    int numIterations = static_cast<int>(knownValues.size());
     if (numIterations % 2 != 0)
         numIterations--;
 
     int i = 0;
     #pragma omp parallel for private(i) reduction (+ : integral) //multithreading go EVEN more brr
     for (i = 0; i < numIterations; i++) {
-        double weight = (i == 0 || i == n) ? 1 : ((i % 2 == 0) ? 2 : 4);
+        double weight = (i == 0 || i == numIterations - 1) ? 1 : ((i % 2 == 0) ? 2 : 4);
         integral += weight * knownValues[i];
     }
+    integral *= sep / 3.0;
 
     return integral;
 }
