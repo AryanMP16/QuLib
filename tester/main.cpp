@@ -25,7 +25,7 @@ int main() {
 		wavefunction psiPIB(USimple);
 		psiPIB.solve(0, 0, 1);
 
-		std::cout << psiPIB.expectation_value('x') << std::endl;
+		//std::cout << psiQHO.expectation_value('x') << std::endl;
 
 		return 0;
 
