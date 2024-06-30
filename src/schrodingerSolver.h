@@ -51,9 +51,9 @@ public:
         for (int i = 0; i < wavefunctionValues.size(); i++)
             modSquared.push_back(wavefunctionValues[i]);
         
-        double eta = 1.0 / integrateOverAllKnownValues(modSquared, 0.01); //normalization constant
+        double eta = std::sqrt(1.0 / integrateOverAllKnownValues(modSquared, 0.01)); //normalization constant
         for (int i = 0; i < wavefunctionValues.size(); i++)
-            wavefunctionValues[i] /= (eta);
+            wavefunctionValues[i] *= (eta);
 
         plt::plot(x, wavefunctionValues);
         plt::title("ψ");
@@ -61,26 +61,21 @@ public:
     }
 
     double expectation_value(char operatorChar){
-        int i;
-        for (i = 0; i < ALLOWED_EXPECTATION_VALUES.size(); i++) {
-            if (operatorChar == ALLOWED_EXPECTATION_VALUES[i])
-                break;
-        }
-        if (i == ALLOWED_EXPECTATION_VALUES.size())
+        if (std::find(ALLOWED_EXPECTATION_VALUES.begin(), ALLOWED_EXPECTATION_VALUES.end(), operatorChar) == ALLOWED_EXPECTATION_VALUES.end())
             throw std::invalid_argument("Not a valid expectation value! Try: x, p");
         
+        std::vector<double> toIntegrateOver(wavefunctionValues.size());
+
         switch (operatorChar) {
             case 'x':
-                std::vector<double> toIntegrateOver;
                 for (int i = 0; i < wavefunctionValues.size(); i++)
-                    toIntegrateOver.push_back(wavefunctionValues[i] * x[i] * wavefunctionValues[i]);
-                
-                return integrateOverAllKnownValues(toIntegrateOver, 0.01); //this is the expectation value
+                    toIntegrateOver[i] = wavefunctionValues[i] * x[i] * wavefunctionValues[i];
                 break;
+            default:
+                throw std::invalid_argument("Operator not implemented yet.");
         }
 
-        return -9999999999999999; //makes compiler happy because it knows that there's something to return,
-                                  //even though we know that if one of the cases is not entered, an error will be thrown
+        return integrateOverAllKnownValues(toIntegrateOver, 0.01);
     }
     
 };
