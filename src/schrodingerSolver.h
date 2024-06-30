@@ -23,6 +23,8 @@ private:
         return {dydx, dyPrimedx};
     }
 
+    std::vector<double> FFT
+
 public:
     wavefunction(potentialFunction V) : V(V) {}
 
@@ -70,6 +72,13 @@ public:
             case 'x':
                 for (int i = 0; i < wavefunctionValues.size(); i++)
                     toIntegrateOver[i] = wavefunctionValues[i] * x[i] * wavefunctionValues[i];
+                break;
+            case 'p':
+                //physics logic supporting this:
+                //<p> = <ψ|p|ψ> = ∫ ψ*(x) (-iħ d/dx) ψ(x) dx
+                //<p|ψ> = ψ(p) = ∫ e^{-ipx/ħ} ψ(x) dx, the Fourier transform
+                //<p> = <ψ|p|ψ> = ∫ ψ*(p) p ψ(p) dp
+                //So all we need to do is take the fourier transform of the function we already have
                 break;
             default:
                 throw std::invalid_argument("Operator not implemented yet.");
