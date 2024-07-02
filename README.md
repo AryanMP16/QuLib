@@ -41,7 +41,18 @@ k_3 = \frac{dy}{dx}(x_n + \frac{h}{2}, y_n + h\frac{k_2}{2})
 ```
 ```math
 k_1 = \frac{dy}{dx}(x_n+h, y_n+hk_3)
-end{cases}
+```
+But we have a second order differential equation, so how can we apply the Runge Kutta method to it? The key is that we can split a second order differential equation into a system of first-order differential equations. Specifically, if we restrict ourselves to 1 dimension:
+
+```math
+-\frac{\hbar^2}{2\mu} \frac{\partial^2}{\partial x^2} \psi(x) + V(x)\psi(x) = E\psi(x)
+```
+Let us now define the first derivative of $`\psi`$ as $`\frac{\partial \psi}{\partial x} = \psi'`$ and use it to define the system of (now <strong>first order</strong>) differential equations:
+```math
+-\frac{\hbar^2}{2\mu} \frac{\partial}{\partial x} \psi'(x) + V(x)\psi(x) = E\psi(x)
+```
+```math
+\frac{\partial \psi}{\partial x} = \psi'
 ```
 
 
