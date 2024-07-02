@@ -64,6 +64,7 @@ If we now get rid of the stupid human constants (shoutout to Dr. B. C. Regan) by
 We now apply Runge Kutta methods to this to solve for $`\psi(x)`$.
 
 <h2>3. Expectation value computations</h2>
+
 ```math
 \langle p | \psi \rangle = \psi(p)
 ```
