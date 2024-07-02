@@ -5,6 +5,10 @@ This code was extensively tested against programs that are known to work. For ex
 
 ![alt text](./README_Pictures/Annotation%202024-06-29%20225632.png)
 
-A note on the computation of $`\langle p \rangle`$:
+A note on the computation of $`\langle p \rangle`$ is that I relied heavily on the (potentially less common, but very powerful) approach:
+
+```math
+SE = \frac{\sigma}{\sqrt{n}}
+```
 
 *(That is, everything except for the graphing library, "matplotlibcpp.h". That was cloned from https://github.com/lava/matplotlib-cpp.git)
