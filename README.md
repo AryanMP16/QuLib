@@ -56,7 +56,7 @@ Let us now define the first derivative of $`\psi`$ as $`\frac{\partial \psi}{\pa
 ```
 If we now get rid of the stupid human constants (shoutout to Dr. B. C. Regan) by setting $`\hbar = \mu = E = 1`$ and simplifying:
 ```math
-\frac{\partial \psi'}{\partial x} = 2\psi(x) (V(x) - E)
+\boxed{\frac{\partial \psi'}{\partial x} = 2\psi(x) (V(x) - E)}
 ```
 ```math
 \frac{\partial \psi}{\partial x} = \psi'
