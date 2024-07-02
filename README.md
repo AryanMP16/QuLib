@@ -6,6 +6,11 @@ Written by Aryan*
 
 <h2>1. Introduction, Features, and Background</h2>
 The main purpose of this library is to provide methods for physicists to numerically approach elementary quantum mechanics in a manner that is accurate, user-friendly, and of utmost importance, <strong>efficient</strong>.
+<ul>
+    <li>Schrodinger's equation solver using 4th order Runge Kutta methods for paired ordinary differential equations</li>
+    <li>Expectation value computations</li>
+    <li>Mathematical foundation: linear algebra and complex number implementations</li>
+</ul>
 
 This code was extensively tested against programs that are known to work. For example, below is a side-by-side comparison of Desmos and the graphs produced by this code.
 
