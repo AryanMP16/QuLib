@@ -49,11 +49,19 @@ But we have a second order differential equation, so how can we apply the Runge 
 ```
 Let us now define the first derivative of $`\psi`$ as $`\frac{\partial \psi}{\partial x} = \psi'`$ and use it to define the system of (now <strong>first order</strong>) differential equations:
 ```math
--\frac{\hbar^2}{2\mu} \frac{\partial}{\partial x} \psi'(x) + V(x)\psi(x) = E\psi(x)
+-\frac{\hbar^2}{2\mu} \frac{\partial \psi'}{\partial x} + V(x)\psi(x) = E\psi(x)
 ```
 ```math
 \frac{\partial \psi}{\partial x} = \psi'
 ```
+If we now get rid of the stupid human constants (shoutout to Dr. B. C. Regan) by setting $`\hbar = \mu = E = 1`$ and simplifying:
+```math
+\frac{\partial \psi'}{\partial x} = 2\psi(x) (V(x) - E)
+```
+```math
+\frac{\partial \psi}{\partial x} = \psi'
+```
+We now apply Runge Kutta methods to this to solve for $`\psi(x)`$
 
 
 This code was extensively tested against programs that are known to work. For example, below is a side-by-side comparison of Desmos and the graphs produced by this code.
