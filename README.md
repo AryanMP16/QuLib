@@ -11,9 +11,8 @@ A note on the computation of $`\langle p \rangle`$ is that I relied heavily on t
 \langle p | \psi \rangle = \psi(p)
 ```
 ```math
-\langle \psi | \hat{p} | \psi \rangle = \langle \hat{p} \rangle = \int_{all \ \ p \ \ space} dp \ \psi^*(p) \ \ [\hat{p}]_{p\ \ basis} \ \ \psi(p)
+\langle \psi | \hat{p} | \psi \rangle = \langle \hat{p} \rangle = \int_{all \ \ p \ \ space} dp \ \langle \psi | p \rangle \ \ [\hat{p}]_{p\ \ basis} \ \ \langle p | \psi \rangle
 ```
-Given $`\langle x | \psi \rangle`$:
 ```math
 \langle p | \psi \rangle = \int \langle x | \psi \rangle e^{-ipx/\hbar}dx
 ```
