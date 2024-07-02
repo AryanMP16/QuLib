@@ -3,7 +3,7 @@ Written by Aryan*
 
 This code was extensively tested against programs that are known to work. For example, below is a side-by-side comparison of Desmos and the graphs produced by this code.
 
-![alt text](./README_Pictures/1.png)
+<img src="./README_Pictures/1.png"/>
 
 A note on the computation of $`\langle p \rangle`$ is that I relied heavily on the (potentially less common, but very powerful) approach:
 
@@ -22,7 +22,10 @@ Given $`\langle x | \psi \rangle`$:
 ```
 
 Tests I ran on the particle-in-a-box and quantum-harmonic-oscillator problems (two analytically solvable setups) were in agreeance with calculations ran on Desmos:
-![alt text](./README_Pictures/2.png)
-![alt text](./README_Pictures/3.png)
+<img src="./README_Pictures/2.png"/>
+<img src="./README_Pictures/3.png"/>
+
+<hr>
+Footnotes:
 
 *(That is, everything except for the graphing library, "matplotlibcpp.h". That was cloned from https://github.com/lava/matplotlib-cpp.git)
