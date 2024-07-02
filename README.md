@@ -22,7 +22,7 @@ Given $`\langle x | \psi \rangle`$:
 ```
 
 Tests I ran on the particle-in-a-box and quantum-harmonic-oscillator problems (two analytically solvable setups) were in agreeance with calculations ran on Desmos:
-<img src="./README_Pictures/2.png"/>
+<img src="./README_Pictures/2.png" height="200px"/>
 <img src="./README_Pictures/3.png"/>
 
 <hr>
