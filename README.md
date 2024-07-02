@@ -9,7 +9,7 @@ A note on the computation of $`\langle p \rangle`$ is that I relied heavily on t
 
 ```math
 \langle p | \psi \rangle = \psi(p)
-\langle \psi | \hat{p} | \psi \rangle = \langle \hat{p} \rangle = \int \ dp \ \psi^*(p) [\hat{p}]_{p\ \ basis} \psi(p)
+\langle \psi | \hat{p} | \psi \rangle = \langle \hat{p} \rangle = \int_{all \ \ p \ \ space} dp \ \psi^*(p) \ \ [\hat{p}]_{p\ \ basis} \ \ \psi(p)
 ```
 
 *(That is, everything except for the graphing library, "matplotlibcpp.h". That was cloned from https://github.com/lava/matplotlib-cpp.git)
