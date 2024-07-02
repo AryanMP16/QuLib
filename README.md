@@ -1,6 +1,11 @@
 There were too many braincells lost on this project.
 Written by Aryan*
 
+<h1>QuLib</h1>
+<h3>A C++ Quantum Mechanics Library</h3>
+
+<h2>1. Introduction, Features, and Background</h2>
+
 This code was extensively tested against programs that are known to work. For example, below is a side-by-side comparison of Desmos and the graphs produced by this code.
 
 <img src="./README_Pictures/1.png"/>
