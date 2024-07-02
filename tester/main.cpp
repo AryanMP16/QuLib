@@ -25,7 +25,13 @@ int main() {
 		wavefunction psiPIB(USimple);
 		psiPIB.solve(0, 0, 1);
 
-		//std::cout << psiQHO.expectation_value('x') << std::endl;
+		std::cout << "\n\nTesting: <ψ|p|ψ> for sin(x√2)\n";
+		std::cout << psiPIB.expectation_value('p') << "  ~0" << std::endl;
+
+		std::cout << "Testing: <ψ|p|ψ> for e^{(x^2)/2}\n";
+		std::cout << psiQHO.expectation_value('p') << "  ~0" << std::endl;
+
+		std::cout << "\n\n";
 
 		return 0;
 
