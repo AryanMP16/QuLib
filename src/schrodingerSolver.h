@@ -2,13 +2,15 @@
 #define SCHRODINGERSOLVER_H
 #include "Runge_Kutta_4.h"
 #include "integrate.h"
+#include "complex.h"
 #include <functional>
 #include <vector>
 
 #define E 1
+#define PI 3.141592653589793
 namespace plt = matplotlibcpp;
 using potentialFunction = std::function<double(double/*x*/)>;
-std::vector<char> ALLOWED_EXPECTATION_VALUES = {'x'};
+std::vector<char> ALLOWED_EXPECTATION_VALUES = {'x', 'p'};
 
 class wavefunction{
 private:
@@ -23,16 +25,14 @@ private:
         return {dydx, dyPrimedx};
     }
 
-    std::vector<double> FFT
-
 public:
     wavefunction(potentialFunction V) : V(V) {}
 
     void solve(double x0, double y0, double dydx0) {
         solved = 1;
 
-        const int length = 300;
-		double h = 0.01;
+        const int length = 3000;
+		double h = 0.001;
 
 		std::pair<double*, double*> results = rk4_paired<length>(std::bind(&wavefunction::ode_system, this,
             std::placeholders::_1,
@@ -53,7 +53,7 @@ public:
         for (int i = 0; i < wavefunctionValues.size(); i++)
             modSquared.push_back(wavefunctionValues[i]);
         
-        double eta = std::sqrt(1.0 / integrateOverAllKnownValues(modSquared, 0.01)); //normalization constant
+        double eta = std::sqrt(1.0 / integrateOverAllKnownValues(modSquared, 0.001)); //normalization constant
         for (int i = 0; i < wavefunctionValues.size(); i++)
             wavefunctionValues[i] *= (eta);
 
@@ -67,6 +67,7 @@ public:
             throw std::invalid_argument("Not a valid expectation value! Try: x, p");
         
         std::vector<double> toIntegrateOver(wavefunctionValues.size());
+        std::pair<std::vector<complexNumber<double>>, std::vector<double>> psi_p;//used for p expectation value
 
         switch (operatorChar) {
             case 'x':
@@ -79,12 +80,38 @@ public:
                 //<p|ψ> = ψ(p) = ∫ e^{-ipx/ħ} ψ(x) dx, the Fourier transform
                 //<p> = <ψ|p|ψ> = ∫ ψ*(p) p ψ(p) dp
                 //So all we need to do is take the fourier transform of the function we already have
+                psi_p = FourierTransform(wavefunctionValues, x);
+                for (int i = 0; i < psi_p.first.size(); i++)
+                    toIntegrateOver[i] = psi_p.first[i].get_real() * psi_p.second[i] * psi_p.first[i].get_real();
                 break;
             default:
                 throw std::invalid_argument("Operator not implemented yet.");
         }
 
-        return integrateOverAllKnownValues(toIntegrateOver, 0.01);
+        return integrateOverAllKnownValues(toIntegrateOver, 0.001);
+    }
+
+    std::pair<std::vector<complexNumber<double>>, std::vector<double>> FourierTransform(std::vector<double> fxn, std::vector<double> x_values) {
+        double N = fxn.size();
+        double deltaX = x_values[1] - x_values[0]; //this is valid because all instances of x will have uniform spacing
+
+        std::vector<complexNumber<double>> FT(N);
+        std::vector<double> p_vec(N);
+
+        for (int k = 0; k < N; k++){
+            double p = 2 * PI * (static_cast<int>(k) - static_cast<int>(N) / 2) / (N * deltaX);
+            complexNumber<double> sum(0.0, 0.0);
+            
+            for (int j = 0; j < N; j++){
+                double angle = p * x_values[j];
+                complexNumber<double> eulers_equation(std::cos(angle), -std::sin(angle));
+                sum += eulers_equation * fxn[j];
+            }
+            FT[k] = sum * deltaX;
+            p_vec[k] = p;
+        }
+
+        return std::make_pair(FT, p_vec);
     }
     
 };
