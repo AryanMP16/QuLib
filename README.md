@@ -5,4 +5,7 @@ This code was extensively tested against programs that are known to work. For ex
 
 ![alt text](./README_Pictures/Annotation%202024-06-29%20225632.png)
 
+A note on the computation of \<p\>:
+<img src="https://latex.codecogs.com/gif.latex?\langle p \rangle"/>
+
 *(That is, everything except for the graphing library, "matplotlibcpp.h". That was cloned from https://github.com/lava/matplotlib-cpp.git)
