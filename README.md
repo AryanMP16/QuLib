@@ -21,7 +21,7 @@ Schrodinger's equation (whose time-independent part I am refering to, of course)
 ```
 There exist, however, very few cases in which this equation is analytically solvable. The rest have to be solved numerically. To achieve this task, I implemented the Runge Kutta method, which can solve first order, linear, ordinary differential equations. It is defined as follows:
 ```math
-y_{n+1}=y_n + h \Sum_{i=1}^s b_i k_i \ \ : \ \ k_i \equiv \frac{dy}{dx}(x_n + c_i h, y_n + h \Sum_{j = 1}^s a_{ij} k_j)
+y_{n+1}=y_n + h \sum_{i=1}^s b_i k_i \ \ : \ \ k_i \equiv \frac{dy}{dx}(x_n + c_i h, y_n + h \sum_{j = 1}^s a_{ij} k_j)
 ```
 The Runge Kutta method is found to be extremely efficient when expanded to the 4th order:
 ```math
@@ -31,10 +31,15 @@ y_{n+1} = y_n + \frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4)
 x_{n+1}=x_n + h
 ```
 ```math
-begin{cases}
-k_1 = \frac{dy}{dx}(x_n, y_n) \\
-k_2 = \frac{dy}{dx}(x_n + \frac{h}{2}, y_n + h\frac{k_1}{2}) \\
-k_3 = \frac{dy}{dx}(x_n + \frac{h}{2}, y_n + h\frac{k_2}{2}) \\
+k_1 = \frac{dy}{dx}(x_n, y_n)
+```
+```math
+k_2 = \frac{dy}{dx}(x_n + \frac{h}{2}, y_n + h\frac{k_1}{2})
+```
+```math
+k_3 = \frac{dy}{dx}(x_n + \frac{h}{2}, y_n + h\frac{k_2}{2})
+```
+```math
 k_1 = \frac{dy}{dx}(x_n+h, y_n+hk_3)
 end{cases}
 ```
