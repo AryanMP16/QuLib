@@ -61,15 +61,9 @@ If we now get rid of the stupid human constants (shoutout to Dr. B. C. Regan) by
 ```math
 \frac{\partial \psi}{\partial x} = \psi'
 ```
-We now apply Runge Kutta methods to this to solve for $`\psi(x)`$
+We now apply Runge Kutta methods to this to solve for $`\psi(x)`$.
 
-
-This code was extensively tested against programs that are known to work. For example, below is a side-by-side comparison of Desmos and the graphs produced by this code.
-
-<img src="./README_Pictures/1.png"/>
-
-A note on the computation of $`\langle p \rangle`$ is that I relied heavily on the (potentially less common, but very powerful) approach:
-
+<h2>3. Expectation value computations</h2>
 ```math
 \langle p | \psi \rangle = \psi(p)
 ```
@@ -83,7 +77,14 @@ A note on the computation of $`\langle p \rangle`$ is that I relied heavily on t
 \langle \hat{p} \rangle = \int dp \ \ (\int \langle \psi | x \rangle e^{ipx/\hbar}dx) \ \ p \ \ (\int \langle x | \psi \rangle e^{-ipx/\hbar}dx)
 ```
 
-Tests I ran on the particle-in-a-box and quantum-harmonic-oscillator problems (two analytically solvable setups) were in agreeance with calculations ran on Desmos:
+<h2>5. Testing</h2>
+This code was extensively tested against programs that are known to work. For example, below is a side-by-side comparison of Desmos and the graphs produced by this code.
+
+<img src="./README_Pictures/1.png"/>
+
+A note on the computation of $`\langle p \rangle`$ is that I relied heavily on the (potentially less common, but very powerful) approach:
+
+Tests I ran on the $`\langle p \rangle`$ of particle-in-a-box and quantum-harmonic-oscillator problems (two analytically solvable setups) were in agreeance with calculations ran on Desmos:
 
 <img src="./README_Pictures/2.png" height="300px"/>
 <img src="./README_Pictures/3.png"/>
