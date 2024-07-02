@@ -17,7 +17,7 @@ A note on the computation of $`\langle p \rangle`$ is that I relied heavily on t
 \langle p | \psi \rangle = \int \langle x | \psi \rangle e^{-ipx/\hbar}dx
 ```
 ```math
-\langle \hat{p} \rangle = \int dp \ \ (\int \langle x | \psi \rangle e^{-ipx/\hbar}dx)^* \ \ p \ \ \int \langle x | \psi \rangle e^{-ipx/\hbar}dx
+\langle \hat{p} \rangle = \int dp \ \ (\int \langle \psi | x \rangle e^{ipx/\hbar}dx) \ \ p \ \ (\int \langle x | \psi \rangle e^{-ipx/\hbar}dx)
 ```
 
 Tests I ran on the particle-in-a-box and quantum-harmonic-oscillator problems (two analytically solvable setups) were in agreeance with calculations ran on Desmos:
