@@ -5,6 +5,7 @@ Written by Aryan*
 <h3>A C++ Quantum Mechanics Library</h3>
 
 <h2>1. Introduction, Features, and Background</h2>
+The main purpose of this library is to provide methods for physicists to numerically approach elementary quantum mechanics in a manner that is accurate, user-friendly, and of utmost importance, <strong>efficient</strong>.
 
 This code was extensively tested against programs that are known to work. For example, below is a side-by-side comparison of Desmos and the graphs produced by this code.
 
