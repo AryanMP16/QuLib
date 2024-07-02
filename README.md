@@ -15,9 +15,9 @@ The main purpose of this library is to provide methods for physicists to numeric
 <h2>2. Schrodinger's equation solver</h2>
 Background:
 Schrodinger's equation (whose time-independent part I am refering to, of course) is a second-order partial differential equation that describes the properties (states) of a quantum particle.
-```math
+$`
 -\frac{\hbar^2}{2\mu}\nabla^2 \psi(\vec{r}) + V(\vec{r})\psi(\vec{r}) = E\psi(\vec{r})
-```
+`$
 There exist, however, very few cases in which this equation is analytically solvable. The rest have to be solved numerically. To achieve this task, I implemented the Runge Kutta method, which can solve first order, linear, ordinary differential equations. It is defined as follows:
 ```math
 y_{n+1}=y_n + h \Sum_{i=1}^s b_i k_i \ \ : \ \ k_i \equiv \frac{dy}{dx}(x_n + c_i h, y_n + h \Sum_{j = 1}^s a_{ij} k_j)
