@@ -37,8 +37,20 @@ public:
 		);
 	}
 
+	complexNumber operator*(T& other) {
+		return complexNumber(real * other, imaginary);
+	}
+
 	void conj() {
 		imaginary = -imaginary;
+	}
+
+	T get_real() {
+		return real;
+	}
+
+	T get_im() {
+		return imaginary;
 	}
 
 	void displayNumber() const {
