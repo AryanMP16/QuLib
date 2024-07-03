@@ -92,7 +92,15 @@ The mathematical tools introduced in this library include:
 <strong>Integration tools</strong>
 <ul>
     <li>
-    <code>double integrate(integrand fxn, double x0, double xEnd, double h)</code> : returns $\sum_{\text{x0}}^{\text{xEnd}} \ \text{fxn} \ h$, which is approximately equal to the desired continuous value, $\int_{\text{x0}}^{\text{xEnd}}\ \text{fxn}\ dx$
+    <code>double integrate(integrand fxn, double x0, double xEnd, double h)</code> : returns
+    
+    ```math
+    \sum_{\text{x0}}^{\text{xEnd}} \ \text{fxn} \ h$
+    ```
+    ...which is approximately equal to the desired continuous value,
+
+    ```math\int_{\text{x0}}^{\text{xEnd}}\ \text{fxn}\ dx$
+    ```
     </li>
 
 </ul>
