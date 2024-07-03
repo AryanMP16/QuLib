@@ -166,6 +166,7 @@ This code was extensively tested against programs that are known to work. For ex
 <img src="./README_Pictures/1.png"/>
 
 This style of testing was used on every kind of function I could think of (excluding arccos, arcsin, and arctan for reasons mentioned later):
+<img src="./README_Pictures/4.png"/>
 
 One major shortcoming of this library is that it struggles with potential functions that are undefined at certain points within the solution interval. For example, solutions to the Schrodinger equation with potential functions such as $`\tan(x)`$, which has a discontinuity at $`\frac{\pi}{2}`$, behave regularly until the discontinuity, and then behave entirely unpredictably from there on. Until a definitive fix is found, please simply ensure that the interval over which you are solving the Schrodinger equation is not one which includes discontinuities in the potential function.
 
