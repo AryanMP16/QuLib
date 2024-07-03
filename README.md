@@ -92,11 +92,7 @@ The mathematical tools introduced in this library include:
 <strong>Integration tools</strong>
 <ul>
     <li>
-    
-    `
-    double integrate(integrand fxn, double x0, double xEnd, double h);
-    `
-    
+     double integrate(integrand fxn, double x0, double xEnd, double h);
     </li>
 </ul>
 
