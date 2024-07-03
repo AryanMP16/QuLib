@@ -1,8 +1,6 @@
-There were too many braincells lost on this project.
-Written by Aryan*
-
 <h1>QuLib</h1>
-<h3>A C++ Quantum Mechanics Library</h3>
+<h3>An Attempt At A C++ Quantum Mechanics Library</h3>
+Written by Aryan*
 
 <h2>1. Introduction and Features</h2>
 The main purpose of this library is to provide methods for physicists to numerically approach elementary quantum mechanics in a manner that is accurate, user-friendly, and of utmost importance, <strong>efficient</strong>.
