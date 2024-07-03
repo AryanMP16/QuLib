@@ -28,7 +28,7 @@ private:
 public:
     wavefunction(potentialFunction V) : V(V) {}
 
-    void solve(double x0, double y0, double dydx0) {
+    void solve(double x0, double y0, double dydx0, std::string title) {
         solved = 1;
 
         const int length = 3000;
@@ -36,30 +36,33 @@ public:
 
 		std::pair<double*, double*> results = rk4_paired<length>(std::bind(&wavefunction::ode_system, this,
             std::placeholders::_1,
-                std::placeholders::_2,
-                    std::placeholders::_3),
-                        y0, dydx0, x0, h);
+            std::placeholders::_2,
+            std::placeholders::_3),
+            y0, dydx0, x0, h);
 
-        for (int i = 0; i < length; i++)
-		    x.push_back(x0 + i * h);
-		
-		wavefunctionValues = std::vector<double>(results.first, results.first + length);
+        x.clear();
+        wavefunctionValues.clear();
+        for (int i = 0; i < length; i++) {
+            x.push_back(x0 + i * h);
+            wavefunctionValues.push_back(results.first[i]);
+        }
 
 		delete[] results.first;
 		delete[] results.second;
 
         //normalization
-        std::vector<double> modSquared;
+        std::vector<double> modSquared(wavefunctionValues.size());
         for (int i = 0; i < wavefunctionValues.size(); i++)
-            modSquared.push_back(wavefunctionValues[i]);
+            modSquared.push_back(wavefunctionValues[i] * wavefunctionValues[i]);
         
         double eta = std::sqrt(1.0 / integrateOverAllKnownValues(modSquared, 0.001)); //normalization constant
         for (int i = 0; i < wavefunctionValues.size(); i++)
             wavefunctionValues[i] *= (eta);
 
+        plt::clf();
         plt::plot(x, wavefunctionValues);
-        plt::title("ψ");
-		plt::save("../saves/wavefunction.png");
+        plt::title("ψ " + title);
+		plt::save("../saves/"+ title + ".png");
     }
 
     double expectation_value(char operatorChar){
