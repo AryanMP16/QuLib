@@ -103,7 +103,6 @@ The mathematical tools introduced in this library include:
 </ul>
 
 <strong>Linear algebra tools</strong>
-
 Implemented as <code>template&lt;class T, int rows, int cols&gt; class matrix</code>, this implementation of linear algebra tools allows you to declare a matrix whose elements are members of another class. This means you can instantiate matrices of integers, floating point decimal numbers, complex numbers, and just about anything else.
 
 Atop this versatility, special attention was given to each computing algorithm to ensure maximum efficiency. The overloaded <code>operator*</code> operator, for example, was implemented with temporal data locality in mind.
@@ -114,15 +113,42 @@ A matrix can be created using either constructor shown below:
     <code>matrix&lt;elementType, numRows, numCols&gt; matrixName;</code>
     </li>
     <li>
-    <code>matrix&lt;elementType, numRows, numCols&gt; newMatrixName(otherMatrixWhichWeWillCopyIntoThisOne);</code>
+    <code>matrix&lt;elementType, numRows, numCols&gt; newMatrixName(otherMatrix);</code>
+    </li>
+</ul>
+The $`ij^{th}`$ matrix elements are accessed using parantheses: <code>matrixName(i, j)</code>. They are also similarly used to set the matrix element $`i`$, $`j`$ to a value: <code>matrixName.set(i, j, value)</code>.
+
+Other functions include:
+<ul>
+    <li>
+    <code>int get_rows() const</code>
+    </li>
+    <li>
+    <code>int get_cols() const</code>
+    </li>
+    <li>
+    <code>int size() const</code>
+    </li>
+    <li>
+    <code>matrix operator+(const matrix& RHS) const</code>
+    </li>
+    <li>
+    <code>matrix<T, rows, rightCols> operator*</code>
+    </li>
+    <li>
+    <code>matrix& operator=(const matrix& other)</code>
+    </li>
+    <li>
+    <code>void displayMatrix() const</code>
     </li>
 </ul>
 
-<ul>
-    <li>
-    <code></code>
-    </li>
-</ul>
+Finally, there also exist child classes <code>class vector : public matrix&lt;T, rows, 1&gt;</code> and <code>class covector : public matrix&lt;T, 1, cols&gt;</code> which inherit properties from <code>matrix</code>. The two can be converted to each other via the use of a special function:
+
+<code>template&lt;class T, int cols&gt;
+covector&lt;T, cols&gt; dual(vector&lt;T, cols&gt;& v)</code>
+
+Which, as its name suggests, converts a vector into its associated dual vector by taking the hermitian conjugate.
 
 <h2>5. Testing</h2>
 This code was extensively tested against programs that are known to work. For example, below is a side-by-side comparison of Desmos and the graphs produced by this code.
