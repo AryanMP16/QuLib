@@ -65,6 +65,15 @@ We now apply Runge Kutta methods to this to solve for $`\psi(x)`$.
 
 <h2>3. Expectation value computations</h2>
 
+Thus far, the only expectation values supported by this library are $`\langle \hat{x} \rangle`$, $`\langle \hat{p} \rangle`$.
+
+The computation of $`\langle \hat{x} \rangle`$ is trivial, as we simply need to compute the integral:
+
+```math
+\langle \hat{x} \rangle = \langle \psi | \hat{x} | \psi \rangle = \int_{\mathbb{R}}dx \psi^*(x) \ \ x \ \ \psi(x)
+```
+The computation of $`\langle p \rangle`$, however, is much less trivial. While I considered using the definition of the momentum operator in position space, $`[\hat{p}]_{pos} \ equiv -i\hbar \nabla`$, I decided to use an alternative approach: viewing $`\langle p | \psi \rangle`$ as the fourier transform of $`\langle x | \psi \rangle`$:
+
 ```math
 \langle p | \psi \rangle = \psi(p)
 ```
@@ -82,8 +91,6 @@ We now apply Runge Kutta methods to this to solve for $`\psi(x)`$.
 This code was extensively tested against programs that are known to work. For example, below is a side-by-side comparison of Desmos and the graphs produced by this code.
 
 <img src="./README_Pictures/1.png"/>
-
-A note on the computation of $`\langle p \rangle`$ is that I relied heavily on the (potentially less common, but very powerful) approach:
 
 Tests I ran on the $`\langle p \rangle`$ of particle-in-a-box and quantum-harmonic-oscillator problems (two analytically solvable setups) were in agreeance with calculations ran on Desmos:
 
