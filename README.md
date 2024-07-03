@@ -15,6 +15,7 @@ To use this library, clone this repository or simply download the files and plac
 Since this project uses a custom set of compilation instructions, to run it, use the following commands from inside of the <strong>BUILD</strong> directory:
 
 <strong>Linux and Windows (use <code>wsl</code> to boot up the Linux subsystem on Windows)</strong>
+
 <code>make
 ./main
 </code>
