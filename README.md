@@ -78,7 +78,7 @@ The computation of $`\langle p \rangle`$, however, is much less trivial. While I
 \langle p | \psi \rangle = \psi(p)
 ```
 ```math
-\langle \psi | \hat{p} | \psi \rangle = \langle \hat{p} \rangle = \int_{all \ \ p \ \ space} dp \ \langle \psi | p \rangle \ \ [\ \hat{p}\ ]_{\mathbb{K}} \ \ \langle p | \psi \rangle
+\langle \psi | \hat{p} | \psi \rangle = \langle \hat{p} \rangle = \int_{\mathbb{K}} dp \ \langle \psi | p \rangle \ \ [\ \hat{p}\ ]_{momentum} \ \ \langle p | \psi \rangle
 ```
 ```math
 \langle p | \psi \rangle = \int \langle x | \psi \rangle e^{-ipx/\hbar}dx
