@@ -58,7 +58,7 @@ If we now get rid of the stupid human constants (shoutout to Dr. B. C. Regan) by
 \boxed{\frac{\partial \psi'}{\partial x} = 2\psi(x) (V(x) - E)}
 ```
 ```math
-\boxed{\frac{\partial \psi}{\partial x} = \psi}'
+\boxed{\frac{\partial \psi}{\partial x} = \psi'}
 ```
 We now apply Runge Kutta methods to this to solve for $`\psi(x)`$.
 
@@ -152,11 +152,12 @@ covector&lt;T, cols&gt; dual(vector&lt;T, cols&gt;& v)</code>
 Which, as its name suggests, converts a vector into its associated dual vector by taking the hermitian conjugate.
 
 <h2>5. Testing</h2>
-This code was extensively tested against programs that are known to work. For example, below is a side-by-side comparison of Desmos and the graphs produced by this code.
+
+This code was extensively tested against programs that are known to work. For example, below is a side-by-side comparison of Desmos and the graphs of $`\psi`$ produced by this code.
 
 <img src="./README_Pictures/1.png"/>
 
-Tests I ran on the $`\langle p \rangle`$ of particle-in-a-box and quantum-harmonic-oscillator problems (two analytically solvable setups) were in agreeance with calculations ran on Desmos:
+Moreover, tests I ran on the $`\langle \hat{p} \rangle`$ of particle-in-a-box and quantum-harmonic-oscillator problems (two analytically solvable setups) were in agreeance with calculations ran on Desmos:
 
 <img src="./README_Pictures/2.png" height="300px"/>
 <img src="./README_Pictures/3.png"/>
