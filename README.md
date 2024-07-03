@@ -87,6 +87,13 @@ The computation of $`\langle p \rangle`$, however, is much less trivial. While I
 \langle \hat{p} \rangle = \int dp \ \ (\int \langle \psi | x \rangle e^{ipx/\hbar}dx) \ \ p \ \ (\int \langle x | \psi \rangle e^{-ipx/\hbar}dx)
 ```
 
+<h2>4. Mathematical tools</h2>
+The mathematical tools introduced in this library include:
+<strong>Integration tools</strong>
+<ul>
+    <li>`double integrate(integrand fxn, double x0, double xEnd, double h)`</li>
+</ul>
+
 <h2>5. Testing</h2>
 This code was extensively tested against programs that are known to work. For example, below is a side-by-side comparison of Desmos and the graphs produced by this code.
 
