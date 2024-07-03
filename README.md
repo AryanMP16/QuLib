@@ -13,8 +13,7 @@ The main purpose of this library is to provide methods for physicists to numeric
 </ul>
 
 <h2>2. Schrodinger's equation solver</h2>
-Background:
-Schrodinger's equation (whose time-independent part I am refering to, of course) is a second-order partial differential equation that describes the properties (states) of a quantum particle.
+The time-independent Schrodinger is a second-order partial differential equation that describes the properties (states) of a quantum particle.
 
 ```math
 -\frac{\hbar^2}{2\mu}\nabla^2 \psi(\vec{r}) + V(\vec{r})\psi(\vec{r}) = E\psi(\vec{r})
@@ -42,7 +41,7 @@ k_3 = \frac{dy}{dx}(x_n + \frac{h}{2}, y_n + h\frac{k_2}{2})
 ```math
 k_1 = \frac{dy}{dx}(x_n+h, y_n+hk_3)
 ```
-But we have a second order differential equation, so how can we apply the Runge Kutta method to it? The key is that we can split a second order differential equation into a system of first-order differential equations. Specifically, if we restrict ourselves to 1 dimension:
+Though we have a second order differential equation, we can separate it manually into a system of first-order differential equations. Specifically, if we restrict ourselves to 1 dimension:
 
 ```math
 -\frac{\hbar^2}{2\mu} \frac{\partial^2}{\partial x^2} \psi(x) + V(x)\psi(x) = E\psi(x)
@@ -54,12 +53,12 @@ Let us now define the first derivative of $`\psi`$ as $`\frac{\partial \psi}{\pa
 ```math
 \frac{\partial \psi}{\partial x} = \psi'
 ```
-If we now get rid of the stupid human constants (shoutout to Dr. B. C. Regan) by setting $`\hbar = \mu = E = 1`$ and simplifying:
+If we now get rid of the stupid human constants (shoutout to Dr. B. C. Regan) by setting $`\hbar = \mu = 1`$ and simplifying:
 ```math
 \boxed{\frac{\partial \psi'}{\partial x} = 2\psi(x) (V(x) - E)}
 ```
 ```math
-\frac{\partial \psi}{\partial x} = \psi'
+\boxed{\frac{\partial \psi}{\partial x} = \psi}'
 ```
 We now apply Runge Kutta methods to this to solve for $`\psi(x)`$.
 
@@ -72,7 +71,7 @@ The computation of $`\langle \hat{x} \rangle`$ is trivial, as we simply need to 
 ```math
 \langle \hat{x} \rangle = \langle \psi | \hat{x} | \psi \rangle = \int_{\mathbb{R}}dx \psi^*(x) \ \ x \ \ \psi(x)
 ```
-The computation of $`\langle p \rangle`$, however, is much less trivial. While I considered using the definition of the momentum operator in position space, $`[\ \hat{p}\ ]_{pos} \equiv -i\hbar \nabla`$, I decided to use an alternative approach: viewing $`\langle p | \psi \rangle`$ as the fourier transform of $`\langle x | \psi \rangle`$:
+The computation of $`\langle \hat{p} \rangle`$, however, is much less trivial. While I considered using the definition of the momentum operator in position space, $`[\ \hat{p}\ ]_{pos} \equiv -i\hbar \nabla`$, I decided to use an alternative approach: viewing $`\langle p | \psi \rangle`$ as the fourier transform of $`\langle x | \psi \rangle`$:
 
 ```math
 \langle p | \psi \rangle = \psi(p)
@@ -90,7 +89,7 @@ The computation of $`\langle p \rangle`$, however, is much less trivial. While I
 <h2>4. Mathematical tools</h2>
 The mathematical tools introduced in this library include:
 
-<strong>Integration tools</strong>
+<h3>Integration tools</h3>
 <ul>
     <li>
     <code>double integrate(integrand fxn, double x0, double xEnd, double h)</code> : returns the approximate value of an integral of fxn with lower bound x0 and upper bound xEnd, with spacing h
@@ -102,7 +101,8 @@ The mathematical tools introduced in this library include:
     </li>
 </ul>
 
-<strong>Linear algebra tools</strong>
+<h3>Linear algebra tools</h3>
+
 Implemented as <code>template&lt;class T, int rows, int cols&gt; class matrix</code>, this implementation of linear algebra tools allows you to declare a matrix whose elements are members of another class. This means you can instantiate matrices of integers, floating point decimal numbers, complex numbers, and just about anything else.
 
 Atop this versatility, special attention was given to each computing algorithm to ensure maximum efficiency. The overloaded <code>operator*</code> operator, for example, was implemented with temporal data locality in mind.
