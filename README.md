@@ -92,17 +92,13 @@ The mathematical tools introduced in this library include:
 <strong>Integration tools</strong>
 <ul>
     <li>
-    <code>double integrate(integrand fxn, double x0, double xEnd, double h)</code> : returns
-    
-    ```math
-    \sum_{\text{x0}}^{\text{xEnd}} \ \text{fxn} \ h$
-    ```
-    ...which is approximately equal to the desired continuous value,
-
-    ```math\int_{\text{x0}}^{\text{xEnd}}\ \text{fxn}\ dx$
-    ```
+    <code>double integrate(integrand fxn, double x0, double xEnd, double h)</code> : returns the approximate value of an integral of fxn with lower bound x0 and upper bound xEnd, with spacing h
+    <li>
+    <code>double integrateOverAllSpace(integrand fxn, double h)</code> : returns the value of the integral over all real numbers of fxn, computed with spacing h
     </li>
-
+    <li>
+    <code>double integrateOverAllKnownValues(std::vector<double> knownValues, double sep)</code> : returns the value of the integral over known values of a function, with spacing sep
+    </li>
 </ul>
 
 <h2>5. Testing</h2>
