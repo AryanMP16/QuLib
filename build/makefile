@@ -1,6 +1,6 @@
 #All paths relative to the SUMMERPROJECT24/build directory
 
-DEPENDENCY_DIR = ../dependencies#don't fucking ask
+DEPENDENCY_DIR = ../dependencies#don't ask
 REQUIRED_FILE = $(DEPENDENCY_DIR)/2a313e2f-0e6b-4d18-8929-d18dd7dd6c7e-1686176447886.jpg
 
 ifeq ($(wildcard $(REQUIRED_FILE)),)
