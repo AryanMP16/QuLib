@@ -1,14 +1,24 @@
 <h1>QuLib</h1>
-<h3>An Attempt At A C++ Quantum Mechanics Library</h3>
+<h3>(An Attempt At) A C++ Quantum Mechanics Library</h3>
 Written by Aryan*
 
-<h2>1. Introduction and Features</h2>
+<h2>1. Introduction, Features, and Usage</h2>
 The main purpose of this library is to provide methods for physicists to numerically approach elementary quantum mechanics in a manner that is accurate, user-friendly, and of utmost importance, <strong>efficient</strong>.
 <ul>
     <li>Schrodinger's equation solver using 4th order Runge Kutta methods for paired ordinary differential equations</li>
     <li>Expectation value computations</li>
     <li>Mathematical elements: linear algebra and complex number implementations</li>
 </ul>
+
+To use this library, clone this repository or simply download the files and place them in your project folder/directory. Then, inside of the "tester" folder, include any C++ files you wish. A sample by the name of "main.cpp" is already provided.
+
+Since this project uses a custom set of compilation instructions, to run it, use the following commands from inside of the <strong>BUILD</strong> directory:
+
+<strong>Linux and Windows (use <code>wsl</code> to boot up the Linux subsystem on Windows)</strong>
+<code>
+make
+./main
+</code>
 
 <h2>2. Schrodinger's equation solver</h2>
 The time-independent Schrodinger is a second-order partial differential equation that describes the properties (states) of a quantum particle.
