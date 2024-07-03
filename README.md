@@ -89,6 +89,7 @@ The computation of $`\langle p \rangle`$, however, is much less trivial. While I
 
 <h2>4. Mathematical tools</h2>
 The mathematical tools introduced in this library include:
+
 <strong>Integration tools</strong>
 <ul>
     <li>
@@ -98,6 +99,28 @@ The mathematical tools introduced in this library include:
     </li>
     <li>
     <code>double integrateOverAllKnownValues(std::vector&lt;double&gt; knownValues, double sep)</code> : returns the value of the integral over known values of a function, with spacing sep
+    </li>
+</ul>
+
+<strong>Linear algebra tools</strong>
+
+Implemented as <code>template&lt;class T, int rows, int cols&gt; class matrix</code>, this implementation of linear algebra tools allows you to declare a matrix whose elements are members of another class. This means you can instantiate matrices of integers, floating point decimal numbers, complex numbers, and just about anything else.
+
+Atop this versatility, special attention was given to each computing algorithm to ensure maximum efficiency. The overloaded <code>operator*</code> operator, for example, was implemented with temporal data locality in mind.
+
+A matrix can be created using either constructor shown below:
+<ul>
+    <li>
+    <code>matrix&lt;elementType, numRows, numCols&gt; matrixName;</code>
+    </li>
+    <li>
+    <code>matrix&lt;elementType, numRows, numCols&gt; newMatrixName(otherMatrixWhichWeWillCopyIntoThisOne);</code>
+    </li>
+</ul>
+
+<ul>
+    <li>
+    <code></code>
     </li>
 </ul>
 
