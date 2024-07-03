@@ -91,9 +91,13 @@ The computation of $`\langle p \rangle`$, however, is much less trivial. While I
 The mathematical tools introduced in this library include:
 <strong>Integration tools</strong>
 <ul>
-    <li>```
+    <li>
+    
+    ```
     double integrate(integrand fxn, double x0, double xEnd, double h)
-    ```</li>
+    ```
+    
+    </li>
 </ul>
 
 <h2>5. Testing</h2>
