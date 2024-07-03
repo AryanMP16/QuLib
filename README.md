@@ -72,7 +72,7 @@ The computation of $`\langle \hat{x} \rangle`$ is trivial, as we simply need to 
 ```math
 \langle \hat{x} \rangle = \langle \psi | \hat{x} | \psi \rangle = \int_{\mathbb{R}}dx \psi^*(x) \ \ x \ \ \psi(x)
 ```
-The computation of $`\langle p \rangle`$, however, is much less trivial. While I considered using the definition of the momentum operator in position space, $`[\hat{p}]_{pos} \ equiv -i\hbar \nabla`$, I decided to use an alternative approach: viewing $`\langle p | \psi \rangle`$ as the fourier transform of $`\langle x | \psi \rangle`$:
+The computation of $`\langle p \rangle`$, however, is much less trivial. While I considered using the definition of the momentum operator in position space, $`[\ \hat{p}\ ]_{pos} \equiv -i\hbar \nabla`$, I decided to use an alternative approach: viewing $`\langle p | \psi \rangle`$ as the fourier transform of $`\langle x | \psi \rangle`$:
 
 ```math
 \langle p | \psi \rangle = \psi(p)
