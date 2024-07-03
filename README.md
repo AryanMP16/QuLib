@@ -116,6 +116,7 @@ A matrix can be created using either constructor shown below:
     <code>matrix&lt;elementType, numRows, numCols&gt; newMatrixName(otherMatrix);</code>
     </li>
 </ul>
+
 The $`ij^{th}`$ matrix elements are accessed using parantheses: <code>matrixName(i, j)</code>. They are also similarly used to set the matrix element $`i`$, $`j`$ to a value: <code>matrixName.set(i, j, value)</code>.
 
 Other functions include:
