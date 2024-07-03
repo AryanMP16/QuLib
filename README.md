@@ -97,7 +97,7 @@ The mathematical tools introduced in this library include:
     <code>double integrateOverAllSpace(integrand fxn, double h)</code> : returns the value of the integral over all real numbers of fxn, computed with spacing h
     </li>
     <li>
-    <code>double integrateOverAllKnownValues(std::vector<double> knownValues, double sep)</code> : returns the value of the integral over known values of a function, with spacing sep
+    <code>double integrateOverAllKnownValues(std::vector&lt;double&gt; knownValues, double sep)</code> : returns the value of the integral over known values of a function, with spacing sep
     </li>
 </ul>
 
